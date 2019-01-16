@@ -1,37 +1,28 @@
 # React frontend assignment
 
-The goal of test assignment is to create a simplistic read-only chat application, that fetches data from a REST API and displays it. Return
-the assignment as an archived ZIP or TAR file and please include the Git history (.git -directory) within the archive.
+The goal of this test assignment is to create a simple read-only chat application which fetches and displays data from a REST API. You may use the provided component library - Material UI, use a different one, or even go on without one. Feel free to add other libraries you might find useful. 
 
-The end result might look like this:
-
-![Chat app layout](/docs/app-layout.png?raw=true "Test assignment app layout")
+Please return the assignment as an archived ZIP or TAR file and include the Git history (the `.git` directory) within the archive.
 
 ## Application features
 
-1. Application needs to display a list of all conversations in a side view.
-It should display avatar, username and indication of unread messages for each conversation.
-2. Application needs to display single conversation when it is selected in the main view.
-Conversation messages should be displayed in sorted order (newest on bottom).
-Timestamp needs to be displayed next to each message.
-3. There is no need to replicate styling from the example above, but application layout should be similar.
-5. Data should be retrieved from the following [http://ui-developer-backend.herokuapp.com/api](http://ui-developer-backend.herokuapp.com/api) REST API.
-There is no authentication and the API has the following endpoints:
+1. Displays a list of all conversations in the left-side panel. Each conversation contains an avatar, username and an indicator informing whether there are any unread messages within that conversation.
+2. Whenever a conversation is selected, its contents are be displayed in the right-side panel. Conversation messages are shown in chronological order (newest at the bottom). Timestamp is displayed next to each message.
+3. The data is retrieved from the following [REST API](http://ui-developer-backend.herokuapp.com/api). There is no authentication and the API has the following endpoints:
     * GET `/conversations` - get all conversations
+    * GET `/conversations/:conversationId/messages` - get all messages in a given conversation
     * GET `/users` - get all users
-    * GET `/users/:id` - get user with `id`
-    * GET `/conversations/:id/messages` - get messages for a conversation with `id`
+    * GET `/users/:userId` - get a single user
 
-Feel free to use any additional libraries that you might need to implement this app.
-You can use any component library instead of `Material UI` or go with pure React.
+### Requirements
+- The application renders correctly in Chrome
+- The code is thoroughly unit tested are the tests are passing. While `jest` and `enzyme` are provided, you can use any other tools
+- The layout contains the list of conversations on the left, and contents of a selected conversation on the right. You may follow the design provided below, or come up with one on your own.
 
-When it comes to browser support the only requirement is that app needs to be able to run in Chrome.
+### An example of how the application could look like:
 
-Do not forget to add a proper set of tests for your code.
-The project has `jest` and `enzyme` setup for tests, but you can change this setup if you prefer other tools.
+![Chat app layout](/docs/app-layout.png?raw=true "Test assignment app layout")
 
-# About the project
+## About the project
 
-This project is based on Material UI `create-react-app` [example](https://github.com/mui-org/material-ui/tree/master/examples/create-react-app)
-
-More information about setup and configuration can be found in `create-react-app` [documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project is based on [Material UI's create-react-app example](https://github.com/mui-org/material-ui/tree/master/examples/create-react-app). More information about the setup and configuration can be found in the [reate-react-app documentation](https://facebook.github.io/create-react-app/docs/getting-started).
