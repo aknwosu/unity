@@ -1,23 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core//Typography';
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
+import React from "react";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core//Typography";
+import { withStyles } from "@material-ui/core/styles";
+import withRoot from "../withRoot";
+import { fetchConversation } from "../apiCall";
+import Conversations from "../components/Conversations";
 
-const styles = (theme) => ({
+const styles = theme => ({
   heading: {
-    margin: `${theme.spacing.unit * 4}px 0`,
-  },
+    margin: `${theme.spacing.unit * 4}px 0`
+  }
 });
 
 export class App extends React.Component {
+  state = {
+    currentuser: {},
+    activeConversation: []
+  };
+  setCurrent = async (user, conversationId) => {
+    this.setState({ currentUser: user });
+    const data = await fetchConversation(conversationId);
+    this.setState({ activeConversation: data });
+  };
+
   render() {
     const { classes } = this.props;
 
     return (
-      <Typography variant="h1" align="center" classes={{ root: classes.heading }}>
-        Unity test assignment
-      </Typography>
+      <div>
+        <Conversations
+          setConversation={this.setCurrent} // better name for setCurrent
+        />
+      </div>
     );
   }
 }
