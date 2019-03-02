@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { fetchUser } from '../apiCall'
+import PropTypes from "prop-types";
 import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
 import { withStyles } from "@material-ui/core/styles"
@@ -49,4 +50,8 @@ export class Message extends Component {
     )
   }
 }
+Message.propTypes = {
+  classes: PropTypes.object.isRequired,
+  message: PropTypes.object.isRequired
+};
 export default withStyles(styles)(Message)
