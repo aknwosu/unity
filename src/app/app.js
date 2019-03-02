@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import { fetchConversation } from "../apiCall";
 import Conversations from "../components/Conversations";
+import ActiveConversation from '../components/ActiveConversation'
 
 const styles = theme => ({
   heading: {
@@ -30,6 +31,9 @@ export class App extends React.Component {
       <div>
         <Conversations
           setConversation={this.setCurrent} // better name for setCurrent
+        />
+        <ActiveConversation
+          conversation={this.state.activeConversation}
         />
       </div>
     );
