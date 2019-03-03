@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchUser } from '../apiCall'
+import { fetchUser } from '../apiCalls'
 import PropTypes from "prop-types";
 import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'

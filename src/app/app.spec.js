@@ -3,7 +3,7 @@ import { shallow, mount } from "enzyme";
 import { App } from "./app";
 import { ActiveConversation } from "../components/ActiveConversation";
 import Conversations from "../components/Conversations";
-import * as api from "../apiCall";
+import * as api from "../apiCalls";
 
 const user = {
   id: "1",

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Avatar from "@material-ui/core/Avatar";
-import { fetchUsers, fetchConversations } from "../apiCall";
+import { fetchUsers, fetchConversations } from "../apiCalls";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
