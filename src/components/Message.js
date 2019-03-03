@@ -4,17 +4,23 @@ import PropTypes from "prop-types";
 import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
 import { withStyles } from "@material-ui/core/styles"
-import Paper from "@material-ui/core/Paper"
+import Typography from "@material-ui/core/Typography";
+import grey from '@material-ui/core/colors/grey';
 
 const styles = theme => ({
   root: {
     flexGrow: 1
   },
-  paper: {
+  wrapper: {
     padding: theme.spacing.unit * 2,
     margin: theme.spacing.unit * 2,
-    // width: 100,
   },
+  conversationInfo: {
+    marginBottom: 15
+  },
+  messageDate: {
+    color: grey[500]
+  }
 })
 export class Message extends Component {
   constructor(props) {
@@ -34,19 +40,19 @@ export class Message extends Component {
     const date = new Date(message.created_at)
 
     return(
-      <Paper className={classes.paper} spacing={16}>
+      <div className={classes.wrapper}>
         {user && (
-          <Grid container direction="row">
-            <Grid>
-              <Avatar alt="Remy Sharp" src={user.avatar_url}  />
+          <Grid container direction="row" spacing={16} className={classes.conversationInfo}>
+            <Grid item>
+              <Avatar alt={user.username} src={user.avatar_url}  />
             </Grid>
-            <Grid>
-              <Grid>{user.username}</Grid>
-              <Grid>{date.toLocaleString('en-US')}</Grid>
+            <Grid item>
+              <Typography>{user.username}</Typography>
+              <div className={classes.messageDate}>{date.toLocaleString('en-US')}</div>
             </Grid>
           </Grid>)}
-        <div className="message" key={message.id}>{message.body}</div>
-      </Paper>
+        <Typography className="message" key={message.id}>{message.body}</Typography>
+      </div>
     )
   }
 }

@@ -22,13 +22,13 @@ const conversation = [
 
 describe("Conversations", () => {
   it("renders without crashing", () => {
-    const props = { conversation: [] };
+    const props = { classes: {}, conversation: [] };
     shallow(<ActiveConversation {...props} />);
   });
 });
 
 it("renders a conversation", () => {
-  const props = { conversation };
+  const props = {classes: {}, conversation };
   const testM = mount(<ActiveConversation {...props} />);
   expect(testM.find(Message)).toBeDefined();
 });

@@ -43,7 +43,7 @@ describe("App", () => {
     api.fetchConversation =
       jest.fn()
       .mockImplementation(a => new Promise(r => r(message)));
-    await testM.instance().setCurrent(user, "3");
+    await testM.instance().onSelectConversation(user, "3");
     expect(testM.state().currentUser).toEqual(user);
     expect(testM.state().activeConversation).toEqual(message);
   });
