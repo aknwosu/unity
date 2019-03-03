@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import withRoot from "../withRoot";
-import { fetchConversation } from "../apiCall";
+import { fetchConversation } from "../apiCalls";
 import Conversations from "../components/Conversations";
 import ActiveConversation from "../components/ActiveConversation";
 

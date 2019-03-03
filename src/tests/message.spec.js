@@ -4,7 +4,7 @@ import { Message } from "../components/Message";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from '@material-ui/core/Typography'
 
-jest.mock("../apiCall");
+jest.mock("../apiCalls");
 const message = {
   id: "3",
   conversation_id: "3",
